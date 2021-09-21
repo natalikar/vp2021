@@ -41,6 +41,7 @@
 	$file_count = count($all_photos);
 	$photo_num = mt_rand(0, $file_count - 1);
 	//echo $photo_num;
+	
 	//<img src="photos/pilt.jpg" alt="Tallinna Ülikool">
 	$photo_html = '<img src="' .$photo_dir .$all_photos[$photo_num] .'" alt="Tallinna Ülikool">';
 	$photo_list_html = "<ul>";
@@ -90,6 +91,7 @@
 	
 	<form method="POST">
 		<?php echo $photo_select_html; ?>
+		
 	</form>
 
 	<?php 
