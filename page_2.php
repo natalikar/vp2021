@@ -1,4 +1,5 @@
 <?php
+	require_once("fnc_user.php");
 	$author_name = "Andrus Rinde";
 	
 	//vaatan, mida POST meetodil saadeti
@@ -81,6 +82,10 @@
 	}
 	$photo_select_html .= "</select> \n";
 	
+	//isse logimine
+	if(isset($_POST["login_submit"])){
+		$notice = sign_in($POST["email_input"]);
+	
 ?>
 <!DOCTYPE html>
 <html lang="et">
@@ -93,6 +98,12 @@
 	<p>See leht on valminud õppetöö raames ja ei sisalda mingit tõsiseltvõetavat sisu!</p>
 	<p>Õppetöö toimub <a href="https://www.tlu.ee/dt">Tallinna Ülikooli Digitehnoloogiate instituudis</a>.</p>
 	<p>Õppetöö toimus 2021 sügisel.</p>
+	<hr>
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	<input type="email" name="email_input" placeholder="kasutajatunnus ehk e-post">
+	<input type="password" name="password_input" placeholder="salasõna">
+	<input type="submit" name="login_submit" placeholder="Logi sisse">
+	</form>
 	<hr>
 	<!--ekraanivorm-->
 	<form method="POST">
